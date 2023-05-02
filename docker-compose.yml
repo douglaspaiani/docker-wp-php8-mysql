@@ -1,30 +1,44 @@
-version: '2'
+version: '3'
 services:
-    server:
-        image: webdevops/php-apache:8.0-alpine
-        ports:
-            - "80:80"
-            - "9001:9001"
-        volumes:
-            - ./src:/var/www/html/src
-            - ./conf/virtualhost.conf:/opt/docker/etc/httpd/vhost.conf
-        links:
-            - mysql
-    mysql:
-        image: mysql:5.6
-        ports:
-            - "3306:3306"
-        environment:
-            - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_DATABASE=database
-        volumes:
-            - ./dump:/docker-entrypoint-initdb.d
-
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin:latest
-        links:
-            - mysql
-        ports:
-            - 8080:80
-        environment:
-            - PMA_ARBITRARY=1
+  server:
+    image: wordpress:latest
+    ports:
+      - "80:80"    
+    volumes:
+      - ./src/back-end/wordpress:/var/www/html
+      - ./conf/virtualhost.conf:/opt/docker/etc/httpd/vhost.conf
+    networks:
+      - my-network
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-database}
+      MYSQL_USER:  ${DB_USER:-jose-cleiton}
+      MYSQL_PASSWORD:  ${DB_PASSWORD:-123456}
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - ./dump:/var/lib/mysql
+    networks:
+      - my-network
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - my-network
+  frontend:
+    image: node:16.14-alpine
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src/front-end:/app-frontend
+    working_dir: /app-frontend
+    command: npm start
+    networks:
+      - my-network
+networks:
+  my-network:

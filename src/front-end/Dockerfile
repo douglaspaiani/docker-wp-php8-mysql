@@ -4,7 +4,8 @@ WORKDIR /app-frontend
 
 COPY package* ./
 
-RUN npm install 
+RUN npm install react-scripts --save \
+  && npm install
 
 COPY . .
 

@@ -32,7 +32,7 @@ const Posts = () => {
       <h1>Posts</h1>
       {posts.map(post => (
         <div key={post.id}>
-          <h2>{post.titulo}</h2>
+          <h1>{post.titulo}</h1>
           <div>{post.content}</div>
         </div>
       ))}

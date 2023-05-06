@@ -62,6 +62,34 @@ const StyledHeader = styled.header`
     nav{
         display: flex;
         justify-content: space-between;
+        height: 60px;
+        align-items: center;
+
+    }
+
+    @media(min-width: 700px){
+        #menu-button,
+        #menu-logo,
+        #menu-overlay{
+            display: none;
+        }
+        #menu-items{
+            display: flex;
+            position: static;
+            height: 60px;
+            width: auto;
+        }
+        ul{
+            display: flex;
+            flex-direction: row;
+            height: 60px;
+            align-items: center;
+        }
+        ul li{
+            margin: 0 ;
+            margin-left: 20px;
+        }
+
     }
 
 `;

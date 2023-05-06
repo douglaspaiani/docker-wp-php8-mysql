@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import StyledHeader from './styles';
-import logo from '../img/blog-logo.png';
+import logo from '../../img/blog-logo.png';
 
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);

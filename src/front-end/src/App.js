@@ -2,8 +2,9 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache, HttpLink } from "@apollo/client";
 import './styles/global.css'
-import Header from "./components/Header";
+import Header from "./components/header";
 import Home from "./pages/home ";
+import Footer from "./components/footer";
 
 const client = new ApolloClient({
   link: new HttpLink({
@@ -17,7 +18,8 @@ function App() {
     <ApolloProvider client={client}>
       <div>        
         <Header />
-       <Home />
+        <Home />
+        <Footer />
       </div>
     </ApolloProvider>
   );

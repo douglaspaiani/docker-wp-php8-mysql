@@ -1,0 +1,27 @@
+:root {
+    --color-background:#F3F3F3;
+    --color-background-nav:#2B3D50;
+    --color-background-home:#344960;
+    --color-text-light:#EDEDED;
+    --color-text-title:#FF5555;
+    --color-text-dark:#3D3D3D;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+  }
+
+  html, body{
+        background-color: var(--color-background);
+  }
+
+  a{
+    text-decoration: none;
+    transition:  0.2s opacity ;
+  }
+  a:hover{
+    opacity: 0.8;
+  }

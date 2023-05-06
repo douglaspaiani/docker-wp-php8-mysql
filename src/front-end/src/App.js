@@ -1,8 +1,7 @@
 import { ApolloProvider } from "@apollo/react-hooks";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache, HttpLink } from "@apollo/client";
-import TopBar from "./topBar/TopBar";
-import Posts from "./posts";
+import './styles/global.css'
 
 const client = new ApolloClient({
   link: new HttpLink({
@@ -15,8 +14,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div>        
-        <TopBar />
-        <Posts />
+       
       </div>
     </ApolloProvider>
   );

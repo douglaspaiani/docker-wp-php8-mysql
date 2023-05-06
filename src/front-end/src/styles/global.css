@@ -1,6 +1,6 @@
 :root {
     --color-background:#F3F3F3;
-    --color-background-nav:#2B3D50;
+    --color-background-nav: #2b9ec8;
     --color-background-home:#344960;
     --color-text-light:#EDEDED;
     --color-text-title:#FF5555;
@@ -24,4 +24,10 @@
   }
   a:hover{
     opacity: 0.8;
+  }
+
+  .container{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
   }
